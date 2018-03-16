@@ -24,8 +24,8 @@ class NetworkServicesTests: XCTestCase {
      This fucntion tests the API search endpoint
      */
     func getSuccessfullSearchResultsForRandomMovieTest() {
-        let api = apiHandler()
-        let result = api.searchTerm(term: "Batman", page:"1")
+        let networkServices = NetworkServices()
+        let result = networkServices.searchTerm(term: "Batman", page: 1)
         XCTAssertEqual(result, true)
     }
     
