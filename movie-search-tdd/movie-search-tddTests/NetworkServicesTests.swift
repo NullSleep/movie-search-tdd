@@ -24,44 +24,40 @@ class NetworkServicesTests: XCTestCase {
     }
     
     /**
-     This fucntion tests the API search endpoint for a success answer disregarding the data
+     This fucntion tests the API search endpoint for a success answer
      */
-    func getSearchResultsForRandomMovieTest() {
+    func testGetSearchResultsForRandomMovie() {
         
-        XCTAssertEqual(result, true)
+        // Create an expectation for a background download task.
+        let expectation = XCTestExpectation(description: "NetworkServices Search API")
         
-        let e = expectation(description: "NetworkServices Search API")
-        
-//        XCTAssertNil(response.error, "Whoops, error \(response.error!.localizedDescription)")
-//        XCTAssertNotNil(response, "No response")
-//        XCTAssertEqual(response.response?.statusCode ?? 0, 200, "Status code not 200")
-        
-        networkServices.performSearch(for: "batman", page: 1) {
+        // Make the network request to search for a term
+        networkServices.searchTerm(for: "batman", page: 1) {
             movieData, error in
             
-            var jsonValue: JSON = [:] {
-                didSet {
-                    self.createMovies(json: jsonValue, page: self.currentPage)
-                }
-            }
+            // We make sure we that some data from the search was returned
+            XCTAssertNotNil(movieData, "No search results recieved.")
             
-            if movieData != nil {
-                self.searchActive = false;
-                
-                jsonValue = movieData!
-                
-                // self.storeMovies(json: movieData!)
-                
-                // Save the searched term
-                self.saveSearchTerm(term)
-                
-            } else if movieData == nil {
-                // jsonValue = self.retrieveStoredData() ?? [:]
-            }
+            // Fulfill the expectation to indicate that the background task has finished successfully.
+            expectation.fulfill()
         }
         
-        
-        waitForExpectations(timeout: 5.0, handler: nil)
+         // Wait until the expectation is fulfilled, with a timeout of 10 seconds.
+         wait(for: [expectation], timeout: 10.0)
+    }
+    
+    /**
+     tests the API search endpoint for a error when data is empty
+     */
+    func testGetErrorSearchResultsForNoterm() {
+        let expectation = XCTestExpectation(description: "NetworkServices Search API Error")
+
+        networkServices.searchTerm(for: "", page: 1) {
+            movieData, error in
+            XCTAssertNotNil(error, "No error was recieved.")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
     }
     
 }

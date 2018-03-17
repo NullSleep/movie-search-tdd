@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232F8A00205C701A00C32A9A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F05598205C5D8F005262D2 /* Alamofire.framework */; };
+		232F8A01205C701A00C32A9A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F05599205C5D8F005262D2 /* AlamofireImage.framework */; };
+		232F8A02205C701A00C32A9A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F0559A205C5D8F005262D2 /* SwiftyJSON.framework */; };
+		232F8A0A205DDD9800C32A9A /* search-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 232F8A09205DDD9800C32A9A /* search-response.json */; };
 		23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0555E205C4488005262D2 /* AppDelegate.swift */; };
 		23F05561205C4488005262D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F05560205C4488005262D2 /* ViewController.swift */; };
 		23F05564205C4488005262D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F05562205C4488005262D2 /* Main.storyboard */; };
@@ -38,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232F8A09205DDD9800C32A9A /* search-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-response.json"; sourceTree = "<group>"; };
 		23F0555B205C4488005262D2 /* movie-search-tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-search-tdd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F0555E205C4488005262D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F05560205C4488005262D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232F8A00205C701A00C32A9A /* Alamofire.framework in Frameworks */,
+				232F8A01205C701A00C32A9A /* AlamofireImage.framework in Frameworks */,
+				232F8A02205C701A00C32A9A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +174,7 @@
 		23F05591205C4A37005262D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				232F8A09205DDD9800C32A9A /* search-response.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 			files = (
 				23F05569205C4488005262D2 /* LaunchScreen.storyboard in Resources */,
 				23F05566205C4488005262D2 /* Assets.xcassets in Resources */,
+				232F8A0A205DDD9800C32A9A /* search-response.json in Resources */,
 				23F05564205C4488005262D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +550,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "movie-search-tddTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.movie-search-tddTests";
@@ -556,6 +570,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "movie-search-tddTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.movie-search-tddTests";
