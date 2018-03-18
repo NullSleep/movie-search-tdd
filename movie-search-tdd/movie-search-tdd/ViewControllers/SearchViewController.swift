@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     private var searchTerms = [String]()
     private var currentPage: Int = 1
     private var searchHistoryPreferredHeight: Int = 30
-    private var searchResultPreferredHeight: Int = 350
+    private var searchResultPreferredHeight: Int = 396
     private var searchActive : Bool = false
     
     //MARK: - View Life cycle
