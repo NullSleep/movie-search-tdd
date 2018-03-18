@@ -24,7 +24,7 @@ class NetworkSerivesRouter: XCTestCase {
      */
     func testCreateUrlForRequetsWithParameters() {
         let url = NetworkServicesRouter.serachMovies("batman", 1)
-        XCTAssertNotNil(url, "Url couldn't be created.")
+        XCTAssertNotNil(url, "URL couldn't be created.")
     }
     
     /**
@@ -32,14 +32,14 @@ class NetworkSerivesRouter: XCTestCase {
      */
     func testCreateUrlForRequetsWithIncorrectTerm() {
         let url = NetworkServicesRouter.serachMovies("", 1)
-        XCTAssertNotNil(url, "Url couldn't be created.")
+        XCTAssertNotNil(url, "URL couldn't be created.")
     }
     
     /**
      tests the API search endpoint for a error when page is incorrect
      */
     func testCreateUrlForRequetsWithIncorrectPage() {
-        let url = NetworkServicesRouter.serachMovies("", 0)
-        XCTAssertNotNil(url, "Url couldn't be created.")
+        let url = NetworkServicesRouter.serachMovies("batman", 0)
+        XCTAssertNotNil(url, "URL couldn't be created.")
     }
 }

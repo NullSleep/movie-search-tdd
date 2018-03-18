@@ -16,13 +16,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private lazy var networkServices = NetworkServices()
-    
-    private var searchTerms = [String]()
-    
-    // Search results variables
-    private var searchResults: NSDictionary = NSDictionary()
-    
+    // MARK: - Search results variables
     private var movieSearchResults : MovieSearchResults? {
         didSet {
             if !movieSearchResults!.isEmpty {
@@ -30,12 +24,14 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
     private var foundMovies = [Movie]() {
         didSet { self.searchTableView.reloadData() }
     }
-    
+    private lazy var networkServices = NetworkServices()
+    private var searchTerms = [String]()
     private var currentPage: Int = 1
+    private var searchHistoryPreferredHeight: Int = 30
+    private var searchResultPreferredHeight: Int = 350
     private var searchActive : Bool = false
     
     //MARK: - View Life cycle
@@ -67,7 +63,6 @@ extension SearchViewController: UISearchBarDelegate {
         if self.searchTerms.contains(term) {
             return
         }
-        
         searchTerms.insert(term, at: 0)
     }
     
@@ -140,9 +135,9 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.searchActive {
-            return 30.0
+            return CGFloat(searchHistoryPreferredHeight)
         }
-        return 350.0
+        return CGFloat(searchResultPreferredHeight)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
