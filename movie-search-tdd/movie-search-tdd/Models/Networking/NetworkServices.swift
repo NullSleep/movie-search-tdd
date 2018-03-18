@@ -55,7 +55,6 @@ class NetworkServices {
      */
     public func getImageUrl(path: String, size: String) -> URL {
         let imageURL = NetworkServicesRouter.imageBaseURLPath + size + path
-        print(imageURL)
         return URL(string: imageURL)!
     }
 }

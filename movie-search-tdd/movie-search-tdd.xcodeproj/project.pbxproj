@@ -19,6 +19,11 @@
 		232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A1A205E0DBA00C32A9A /* NetworkServicesRouter.swift */; };
 		232F8A1E205E153200C32A9A /* NetworkSerivesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A1D205E153200C32A9A /* NetworkSerivesRouterTests.swift */; };
 		23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8EC205EBDB4000FE578 /* RoundImageView.swift */; };
+		23E2A8F3205F0C8C000FE578 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8F2205F0C8C000FE578 /* DBManager.swift */; };
+		23E2A8F6205F0FA9000FE578 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */; };
+		23E2A8F7205F0FA9000FE578 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F5205F0FA9000FE578 /* Realm.framework */; };
+		23E2A8F8205F0FC5000FE578 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F5205F0FA9000FE578 /* Realm.framework */; };
+		23E2A8F9205F0FC5000FE578 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */; };
 		23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0555E205C4488005262D2 /* AppDelegate.swift */; };
 		23F05564205C4488005262D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F05562205C4488005262D2 /* Main.storyboard */; };
 		23F05566205C4488005262D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F05565205C4488005262D2 /* Assets.xcassets */; };
@@ -58,6 +63,9 @@
 		232F8A1A205E0DBA00C32A9A /* NetworkServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesRouter.swift; sourceTree = "<group>"; };
 		232F8A1D205E153200C32A9A /* NetworkSerivesRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerivesRouterTests.swift; sourceTree = "<group>"; };
 		23E2A8EC205EBDB4000FE578 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		23E2A8F2205F0C8C000FE578 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		23E2A8F5205F0FA9000FE578 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		23F0555B205C4488005262D2 /* movie-search-tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-search-tdd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F0555E205C4488005262D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F05563205C4488005262D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E2A8F8205F0FC5000FE578 /* Realm.framework in Frameworks */,
+				23E2A8F9205F0FC5000FE578 /* RealmSwift.framework in Frameworks */,
 				23F0559B205C5D8F005262D2 /* Alamofire.framework in Frameworks */,
 				23F0559C205C5D8F005262D2 /* AlamofireImage.framework in Frameworks */,
 				23F0559D205C5D8F005262D2 /* SwiftyJSON.framework in Frameworks */,
@@ -91,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E2A8F6205F0FA9000FE578 /* RealmSwift.framework in Frameworks */,
+				23E2A8F7205F0FA9000FE578 /* Realm.framework in Frameworks */,
 				232F8A00205C701A00C32A9A /* Alamofire.framework in Frameworks */,
 				232F8A01205C701A00C32A9A /* AlamofireImage.framework in Frameworks */,
 				232F8A02205C701A00C32A9A /* SwiftyJSON.framework in Frameworks */,
@@ -204,6 +216,7 @@
 				232F8A1C205E12CF00C32A9A /* Networking */,
 				232F8A0C205DEB0900C32A9A /* MovieSearchResults.swift */,
 				232F8A0B205DEB0900C32A9A /* Movie.swift */,
+				23E2A8F2205F0C8C000FE578 /* DBManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +232,8 @@
 		23F05597205C5D8E005262D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23E2A8F5205F0FA9000FE578 /* Realm.framework */,
+				23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */,
 				23F05598205C5D8F005262D2 /* Alamofire.framework */,
 				23F05599205C5D8F005262D2 /* AlamofireImage.framework */,
 				23F0559A205C5D8F005262D2 /* SwiftyJSON.framework */,
@@ -367,6 +382,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -385,6 +402,7 @@
 				232F8A0E205DEB0900C32A9A /* MovieSearchResults.swift in Sources */,
 				23F05595205C5436005262D2 /* NetworkServices.swift in Sources */,
 				232F8A0D205DEB0900C32A9A /* Movie.swift in Sources */,
+				23E2A8F3205F0C8C000FE578 /* DBManager.swift in Sources */,
 				232F8A16205E001200C32A9A /* MovieTableViewCell.swift in Sources */,
 				23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */,
 				232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */,

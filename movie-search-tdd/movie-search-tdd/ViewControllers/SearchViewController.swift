@@ -38,10 +38,19 @@ class SearchViewController: UIViewController {
     //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateSearchTerms()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func updateSearchTerms() {
+        searchTerms.removeAll()
+        let retrievedResults = DBManager.sharedInstance.retrieve()
+        for i in 0..<retrievedResults.count {
+            searchTerms.append(retrievedResults[i].name)
+        }
     }
 }
 
@@ -65,6 +74,7 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.searchActive {
+            foundMovies.removeAll()
             let searchTermSelected = searchTerms[indexPath.row]
             self.searchBar.text = searchTermSelected
             searchBar.resignFirstResponder()
@@ -87,13 +97,6 @@ extension SearchViewController: UISearchBarDelegate {
         self.searchActive = false;
         self.searchTableView.reloadData()
         performSearch(for: searchBar.text)
-    }
-    
-    func saveSearchTerm(_ term: String) {
-        if self.searchTerms.contains(term) {
-            return
-        }
-        searchTerms.insert(term, at: 0)
     }
     
     func performSearch(for term: String?) {
@@ -119,6 +122,18 @@ extension SearchViewController: UISearchBarDelegate {
                 // jsonValue = self.retrieveStoredData() ?? [:]
             }
         }
+    }
+    
+    func saveSearchTerm(_ term: String) {
+        if self.searchTerms.contains(term) {
+            return
+        }
+        
+        let searchTerm = SearchTerm()
+        searchTerm.name = term
+        DBManager.sharedInstance.save(object: searchTerm)
+        
+        searchTerms.insert(term, at: 0)
     }
     
     func shwoNoSearchAlert(for term: String) {
