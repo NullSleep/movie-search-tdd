@@ -26,9 +26,6 @@ struct MovieSearchResults {
      Function to parse the response from the API Call given a JSON strucutre and convert it to MovieSearchResults
      */
     func movieSearchResultsFromReponse(searchResults: JSON) -> MovieSearchResults? {
-        print("KOKO")
-        print(searchResults)
-        
         var searchResult: MovieSearchResults?
         
         if let page = searchResults["page"].int,
@@ -53,6 +50,4 @@ struct MovieSearchResults {
         
         return searchResult
     }
-    
-    
 }

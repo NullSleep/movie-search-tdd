@@ -26,7 +26,7 @@ class NetworkServicesTests: XCTestCase {
     /**
      This fucntion tests the API search endpoint for a success answer
      */
-    func testGetSearchResultsForRandomMovie() {
+    func testGetSearchResultsForGivenMovie() {
         
         // Create an expectation for a background download task.
         let expectation = XCTestExpectation(description: "NetworkServices Search API")
@@ -72,6 +72,14 @@ class NetworkServicesTests: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
+    }
+    
+    /**
+     tests the API image endpoint for a success image url
+     */
+    func testGetImageForGivenConfiguration() {
+        let imagePath = networkServices.getImageUrl(path: "http://image.tmdb.org/t/p", size: NetworkServicesRouter.posterSize.small.rawValue)
+         XCTAssertNotNil(imagePath, "Image path couldn't be obtained.")
     }
     
 }

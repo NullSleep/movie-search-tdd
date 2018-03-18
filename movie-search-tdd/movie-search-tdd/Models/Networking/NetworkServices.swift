@@ -17,11 +17,13 @@ class NetworkServices {
         case ServiceError(String)
     }
     
+    // MARK: - Public Methods
+    
     /**
      Given a term and page retunrs a tuple with the JSON respresentation of the response and an Error in case of problems
      */
-    func searchTerm(for term: String, page: Int, completion: @escaping (MovieSearchResults?, Error?) -> ()) {
-        Alamofire.request(NetworkServicesRouter.serachMovies(term, page)).responseJSON { response in
+    public func searchTerm(for term: String, page: Int, completion: @escaping (MovieSearchResults?, Error?) -> ()) {
+        Alamofire.request(NetworkServicesRouter.searchMovies(term, page)).responseJSON { response in
             switch response.result {
                 
             case .success(let value):
@@ -48,24 +50,12 @@ class NetworkServices {
         }
     }
     
-    func searchTermJson(for term: String, page: Int, completion: @escaping (JSON?, Error?) -> ()) {
-        Alamofire.request(NetworkServicesRouter.serachMovies(term, page)).responseJSON { response in
-            switch response.result {
-                
-            case .success(let value):
-                let jsonResponse = JSON(rawValue: value)
-                
-                if let errorMessage = jsonResponse?["errors"].arrayObject?.first as? String {
-                    let apiError = APiError.ServiceError(errorMessage)
-                    completion(nil, apiError)
-                    return
-                }
-                completion(jsonResponse, nil)
-                
-            case .failure(let error):
-                completion(nil, error)
-                return
-            }
-        }
+    /**
+     Given an image path return the image url
+     */
+    public func getImageUrl(path: String, size: String) -> URL {
+        let imageURL = NetworkServicesRouter.imageBaseURLPath + size + path
+        print(imageURL)
+        return URL(string: imageURL)!
     }
 }

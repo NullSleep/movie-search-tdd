@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import AlamofireImage
 
 class SearchViewController: UIViewController {
     
@@ -125,6 +126,12 @@ extension SearchViewController: UITableViewDataSource {
         cell.movieNameLabel.text = movie.movieName
         cell.releaseDateLabel.text = movie.releaseDate
         cell.movieOverview.text = movie.movieOverview
+        
+        if let imageURL = movie.moviePoster {
+            let imagePath = networkServices.getImageUrl(path: imageURL, size: NetworkServicesRouter.posterSize.medium.rawValue)
+            cell.movieImageView?.af_setImage(withURL: imagePath, completion: { _ in
+            })
+        }
         
         return cell
     }

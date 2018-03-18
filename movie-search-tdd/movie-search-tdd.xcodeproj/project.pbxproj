@@ -18,6 +18,7 @@
 		232F8A16205E001200C32A9A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A15205E001200C32A9A /* MovieTableViewCell.swift */; };
 		232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A1A205E0DBA00C32A9A /* NetworkServicesRouter.swift */; };
 		232F8A1E205E153200C32A9A /* NetworkSerivesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A1D205E153200C32A9A /* NetworkSerivesRouterTests.swift */; };
+		23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8EC205EBDB4000FE578 /* RoundImageView.swift */; };
 		23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0555E205C4488005262D2 /* AppDelegate.swift */; };
 		23F05564205C4488005262D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F05562205C4488005262D2 /* Main.storyboard */; };
 		23F05566205C4488005262D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F05565205C4488005262D2 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		232F8A15205E001200C32A9A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		232F8A1A205E0DBA00C32A9A /* NetworkServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesRouter.swift; sourceTree = "<group>"; };
 		232F8A1D205E153200C32A9A /* NetworkSerivesRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSerivesRouterTests.swift; sourceTree = "<group>"; };
+		23E2A8EC205EBDB4000FE578 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		23F0555B205C4488005262D2 /* movie-search-tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-search-tdd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F0555E205C4488005262D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F05563205C4488005262D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				23F05562205C4488005262D2 /* Main.storyboard */,
 				23F05567205C4488005262D2 /* LaunchScreen.storyboard */,
 				232F8A15205E001200C32A9A /* MovieTableViewCell.swift */,
+				23E2A8EC205EBDB4000FE578 /* RoundImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				23F05595205C5436005262D2 /* NetworkServices.swift in Sources */,
 				232F8A0D205DEB0900C32A9A /* Movie.swift in Sources */,
 				232F8A16205E001200C32A9A /* MovieTableViewCell.swift in Sources */,
+				23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */,
 				232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */,
 				23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */,
 			);
