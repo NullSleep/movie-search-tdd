@@ -131,8 +131,7 @@ extension SearchViewController: UISearchBarDelegate {
         
         let searchTerm = SearchTerm()
         searchTerm.name = term
-        DBManager.sharedInstance.save(object: searchTerm)
-        
+        let _ = DBManager.sharedInstance.save(object: searchTerm)
         searchTerms.insert(term, at: 0)
     }
     

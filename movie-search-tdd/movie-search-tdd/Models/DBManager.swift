@@ -10,21 +10,27 @@ import Foundation
 import RealmSwift
 
 class DBManager {
+    
+    // MARK: - Properties
     private var database:Realm
     static let sharedInstance = DBManager()
     
+    // MARK: - Initializer
     private init() {
         database = try! Realm()
     }
     
-    func save(object: SearchTerm) {
+    // MARK: - Public Functions
+    func save(object: SearchTerm) -> Bool {
         do {
             try database.write {
                 database.add(object, update: true)
             }
+            return true
         } catch let error as NSError {
             fatalError(error.localizedDescription)
         }
+        return false
     }
     
     func retrieve() -> Results<SearchTerm> {
@@ -33,13 +39,13 @@ class DBManager {
     }
     
     func deleteAllFromDatabase()  {
-        try!   database.write {
+        try! database.write {
             database.deleteAll()
         }
     }
     
     func deleteFromDb(object: SearchTerm)   {
-        try!   database.write {
+        try! database.write {
             database.delete(object)
         }
     }
