@@ -10,15 +10,24 @@ import Foundation
 import SwiftyJSON
 
 struct MovieSearchResults {
+    
+    // MARK: - Properties
     let page: Int?
     let total_results: Int?
     let total_pages: Int?
     var results: [Movie]?
+    var isEmpty : Bool {
+        return results?.isEmpty ?? true
+    }
 
+    // MARK: - Public functions
+    
     /**
      Function to parse the response from the API Call given a JSON strucutre and convert it to MovieSearchResults
      */
     func movieSearchResultsFromReponse(searchResults: JSON) -> MovieSearchResults? {
+        print("KOKO")
+        print(searchResults)
         
         var searchResult: MovieSearchResults?
         
@@ -44,4 +53,6 @@ struct MovieSearchResults {
         
         return searchResult
     }
+    
+    
 }

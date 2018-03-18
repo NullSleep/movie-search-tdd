@@ -24,25 +24,19 @@ class SearchViewController: UIViewController {
     private var searchResults: NSDictionary = NSDictionary()
     
     private var movieSearchResults : MovieSearchResults? {
-        didSet { self.searchTableView.reloadData() }
-    }
-    
-    
-    private var foundMovies = [MovieObj]() {
-        didSet { self.searchTableView.reloadData() }
-    }
-    private var retrievedMovies = [MovieObj]() {
         didSet {
-            if !retrievedMovies.isEmpty {
-                foundMovies = retrievedMovies
+            if !movieSearchResults!.isEmpty {
+                foundMovies = movieSearchResults!.results!
             }
         }
     }
     
+    private var foundMovies = [Movie]() {
+        didSet { self.searchTableView.reloadData() }
+    }
+    
     private var currentPage: Int = 1
     private var searchActive : Bool = false
-    
-    private var resultadoBusqueda : MovieSearchResults?
     
     //MARK: - View Life cycle
     override func viewDidLoad() {
@@ -82,23 +76,16 @@ extension SearchViewController: UISearchBarDelegate {
         
         activityIndicator.startAnimating()
         
-        networkServices.BASICSearch(for: term, page: self.currentPage) {
+        networkServices.searchTerm(for: term, page: self.currentPage) {
             movieData, error in
             
             self.activityIndicator.stopAnimating()
             
-            self.retrievedMovies.removeAll()
-            
-            var jsonValue: JSON = [:] {
-                didSet {
-                    self.createMovies(json: jsonValue, page: self.currentPage)
-                }
-            }
-            
             if movieData != nil {
                 self.searchActive = false;
                 
-                jsonValue = movieData!
+                // Assign the search results
+                self.movieSearchResults = movieData
                 
                 // Save the searched term
                 self.saveSearchTerm(term)
@@ -113,26 +100,6 @@ extension SearchViewController: UISearchBarDelegate {
         let alertController = UIAlertController(title: "Error", message: "No movies could be found for \(term). Try searching for something else)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alertController, animated: true)
-    }
-    
-    func createMovies(json: JSON, page: Int) {
-        
-        let moviesFound = json["results"].arrayValue
-        let pageRetrieved = json["page"].int
-        
-        if pageRetrieved == page {
-            self.currentPage = page
-            
-            for item in moviesFound {
-                let movie = MovieObj()
-                print(item["title"].string ?? "")
-                movie.moviePoster = item["poster_path"].string
-                movie.movieName = item["title"].string
-                movie.releaseDate = item["release_date"].string
-                movie.movieOverview = item["overview"].string
-                self.retrievedMovies.append(movie)
-            }
-        }
     }
 }
 
