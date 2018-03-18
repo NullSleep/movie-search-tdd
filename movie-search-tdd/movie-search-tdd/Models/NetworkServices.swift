@@ -52,4 +52,23 @@ class NetworkServices {
             }
         }
     }
+    
+    func BASICSearch(for term: String, page: Int, completion: @escaping (JSON?, Error?) -> ()) {
+        let parameters: Parameters = ["query": term, "page": page, "api_key": self.api_key]
+        print(parameters)
+        let url = self.apiUrl + self.apiEndPoint
+        
+        Alamofire.request(url, method: .get, parameters:parameters).responseJSON { response in
+            switch response.result {
+                
+            case .success(let value):
+                let jsonResponse = JSON(rawValue: value)
+                completion(jsonResponse, nil)
+                
+            case .failure(let error):
+                completion(nil, error)
+                return
+            }
+        }
+    }
 }
