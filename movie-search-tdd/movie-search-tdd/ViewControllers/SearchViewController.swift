@@ -21,7 +21,7 @@ class SearchViewController: UIViewController {
     private var movieSearchResults : MovieSearchResults? {
         didSet {
             if !movieSearchResults!.isEmpty {
-                foundMovies = movieSearchResults!.results!
+                foundMovies.append(contentsOf: movieSearchResults!.results!)
             }
         }
     }
@@ -45,6 +45,34 @@ class SearchViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.searchActive {
+            return CGFloat(searchHistoryPreferredHeight)
+        }
+        return CGFloat(searchResultPreferredHeight)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.foundMovies.count-1 {
+            self.currentPage += 1
+            performSearch(for: searchBar.text)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.searchActive {
+            let searchTermSelected = searchTerms[indexPath.row]
+            self.searchBar.text = searchTermSelected
+            searchBar.resignFirstResponder()
+            performSearch(for: searchTermSelected)
+        }
+    }
+}
+
 // MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     
@@ -55,6 +83,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        foundMovies.removeAll()
         self.searchActive = false;
         self.searchTableView.reloadData()
         performSearch(for: searchBar.text)
@@ -134,33 +163,5 @@ extension SearchViewController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.searchActive {
-            return CGFloat(searchHistoryPreferredHeight)
-        }
-        return CGFloat(searchResultPreferredHeight)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == self.foundMovies.count-1 {
-            self.currentPage += 1
-            performSearch(for: searchBar.text)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.searchActive {
-            let searchTermSelected = searchTerms[indexPath.row]
-            self.searchBar.text = searchTermSelected
-            searchBar.resignFirstResponder()
-            performSearch(for: searchTermSelected)
-        }
     }
 }
