@@ -34,8 +34,7 @@ class NetworkServices {
             switch response.result {
                 
             case .success(let value):
-//                print("\(response)")
-                
+
                 let jsonResponse = JSON(rawValue: value)
                 print(jsonResponse?["errors"][0].string ?? "UUU")
                 
@@ -48,7 +47,6 @@ class NetworkServices {
                 completion(jsonResponse, nil)
                 
             case .failure(let error):
-//                print("\(error)")
                 completion(nil, error)
                 return
             }

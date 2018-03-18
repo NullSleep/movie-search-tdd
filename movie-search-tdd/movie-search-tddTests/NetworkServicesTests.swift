@@ -9,7 +9,7 @@
 import XCTest
 @testable import movie_search_tdd
 
-/// Network services tess for the movie search API endpoints.
+/// Network services tests for the movie search API endpoints.
 class NetworkServicesTests: XCTestCase {
     
     /// Singleton for handling NetworkServices requests
