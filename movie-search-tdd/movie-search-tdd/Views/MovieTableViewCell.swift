@@ -10,6 +10,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
     @IBOutlet weak var movieImageView: RoundImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
