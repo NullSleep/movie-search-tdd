@@ -22,10 +22,14 @@ class SearchViewController: UIViewController {
     // Search results variables
     private var searchResults: NSDictionary = NSDictionary()
     
-    private var foundMovies = [MovieObj]() {
+    private var movieSearchResults : MovieSearchResults? {
         didSet { self.searchTableView.reloadData() }
     }
     
+    
+    private var foundMovies = [MovieObj]() {
+        didSet { self.searchTableView.reloadData() }
+    }
     private var retrievedMovies = [MovieObj]() {
         didSet {
             if !retrievedMovies.isEmpty {
@@ -39,7 +43,7 @@ class SearchViewController: UIViewController {
     
     private var resultadoBusqueda : MovieSearchResults?
     
-    //MARK: View Lifecycle
+    //MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
