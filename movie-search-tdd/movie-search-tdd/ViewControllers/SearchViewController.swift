@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class SearchViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -43,8 +44,7 @@ class SearchViewController: UIViewController {
     
     private var resultadoBusqueda : MovieSearchResults?
     
-    //MARK: - View Lifecycle
-
+    //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }

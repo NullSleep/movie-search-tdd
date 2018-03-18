@@ -47,12 +47,26 @@ class NetworkServicesTests: XCTestCase {
     }
     
     /**
-     tests the API search endpoint for a error when data is empty
+     tests the API search endpoint for a error when search term is empty
      */
     func testGetErrorSearchResultsForNoterm() {
         let expectation = XCTestExpectation(description: "NetworkServices Search API Error")
 
         networkServices.searchTerm(for: "", page: 1) {
+            movieData, error in
+            XCTAssertNotNil(error, "No error was recieved.")
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    /**
+     tests the API search endpoint for a error when page is incorrect
+     */
+    func testGetErrorSearchResultsForIncorrectPage() {
+        let expectation = XCTestExpectation(description: "NetworkServices Search API Error")
+        
+        networkServices.searchTerm(for: "Batman", page: 0) {
             movieData, error in
             XCTAssertNotNil(error, "No error was recieved.")
             expectation.fulfill()
