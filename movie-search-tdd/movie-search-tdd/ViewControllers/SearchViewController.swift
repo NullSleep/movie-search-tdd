@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import AlamofireImage
+import SDWebImage
 
 class SearchViewController: UIViewController {
     
@@ -179,8 +180,7 @@ extension SearchViewController: UITableViewDataSource {
         
         if let imageURL = movie.moviePoster {
             let imagePath = networkServices.getImageUrl(path: imageURL, size: NetworkServicesRouter.posterSize.medium.rawValue)
-            cell.movieImageView?.af_setImage(withURL: imagePath, completion: { _ in
-            })
+             cell.movieImageView.sd_setImage(with: imagePath, placeholderImage: UIImage(named: "placeholder.png"))
         }
         
         return cell

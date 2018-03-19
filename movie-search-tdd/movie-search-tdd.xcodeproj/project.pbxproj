@@ -25,6 +25,8 @@
 		23E2A8F8205F0FC5000FE578 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F5205F0FA9000FE578 /* Realm.framework */; };
 		23E2A8F9205F0FC5000FE578 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */; };
 		23E2A8FB205F1A47000FE578 /* DBManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8FA205F1A47000FE578 /* DBManagerTests.swift */; };
+		23E2A8FD205F3FEB000FE578 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8FC205F3FEB000FE578 /* SDWebImage.framework */; };
+		23E2A8FF205F445D000FE578 /* MovieSearchUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8FE205F445D000FE578 /* MovieSearchUtilities.swift */; };
 		23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0555E205C4488005262D2 /* AppDelegate.swift */; };
 		23F05564205C4488005262D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F05562205C4488005262D2 /* Main.storyboard */; };
 		23F05566205C4488005262D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F05565205C4488005262D2 /* Assets.xcassets */; };
@@ -33,7 +35,6 @@
 		23F05593205C4C5F005262D2 /* NetworkServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F05592205C4C5F005262D2 /* NetworkServicesTests.swift */; };
 		23F05595205C5436005262D2 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F05594205C5436005262D2 /* NetworkServices.swift */; };
 		23F0559B205C5D8F005262D2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F05598205C5D8F005262D2 /* Alamofire.framework */; };
-		23F0559C205C5D8F005262D2 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F05599205C5D8F005262D2 /* AlamofireImage.framework */; };
 		23F0559D205C5D8F005262D2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F0559A205C5D8F005262D2 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		23E2A8F5205F0FA9000FE578 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		23E2A8FA205F1A47000FE578 /* DBManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerTests.swift; sourceTree = "<group>"; };
+		23E2A8FC205F3FEB000FE578 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		23E2A8FE205F445D000FE578 /* MovieSearchUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchUtilities.swift; sourceTree = "<group>"; };
 		23F0555B205C4488005262D2 /* movie-search-tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-search-tdd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F0555E205C4488005262D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F05563205C4488005262D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,10 +94,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E2A8FD205F3FEB000FE578 /* SDWebImage.framework in Frameworks */,
 				23E2A8F8205F0FC5000FE578 /* Realm.framework in Frameworks */,
 				23E2A8F9205F0FC5000FE578 /* RealmSwift.framework in Frameworks */,
 				23F0559B205C5D8F005262D2 /* Alamofire.framework in Frameworks */,
-				23F0559C205C5D8F005262D2 /* AlamofireImage.framework in Frameworks */,
 				23F0559D205C5D8F005262D2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				23F0555E205C4488005262D2 /* AppDelegate.swift */,
+				23E2A8FE205F445D000FE578 /* MovieSearchUtilities.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -235,6 +239,7 @@
 		23F05597205C5D8E005262D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23E2A8FC205F3FEB000FE578 /* SDWebImage.framework */,
 				23E2A8F5205F0FA9000FE578 /* Realm.framework */,
 				23E2A8F4205F0FA9000FE578 /* RealmSwift.framework */,
 				23F05598205C5D8F005262D2 /* Alamofire.framework */,
@@ -383,10 +388,10 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
 			);
 			outputPaths = (
 			);
@@ -408,6 +413,7 @@
 				23E2A8F3205F0C8C000FE578 /* DBManager.swift in Sources */,
 				232F8A16205E001200C32A9A /* MovieTableViewCell.swift in Sources */,
 				23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */,
+				23E2A8FF205F445D000FE578 /* MovieSearchUtilities.swift in Sources */,
 				232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */,
 				23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */,
 			);
@@ -588,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.movie-search-tdd";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -606,7 +612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.movie-search-tdd";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
