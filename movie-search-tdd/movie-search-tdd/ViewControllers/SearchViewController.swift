@@ -31,6 +31,7 @@ class SearchViewController: UIViewController {
     private lazy var networkServices = NetworkServices()
     private var searchTerms = [String]()
     private var currentPage: Int = 1
+    private var maxPages: Int = 1
     private var searchHistoryPreferredHeight: Int = 30
     private var searchResultPreferredHeight: Int = 396
     private var searchActive : Bool = false
@@ -45,12 +46,21 @@ class SearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func updateSearchTerms() {
+    //MARK: - Private methods
+    private func updateSearchTerms() {
         searchTerms.removeAll()
         let retrievedResults = DBManager.sharedInstance.retrieve()
         for i in 0..<retrievedResults.count {
             searchTerms.append(retrievedResults[i].name)
         }
+    }
+    
+    private func resetTableAndSearch(term: String?) {
+        //Set all the variables back for the new search
+        searchBar.resignFirstResponder()
+        self.currentPage = 1
+        foundMovies.removeAll()
+        performSearch(for: term)
     }
 }
 
@@ -74,11 +84,10 @@ extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.searchActive {
-            foundMovies.removeAll()
+            //Get the term to search and search it
             let searchTermSelected = searchTerms[indexPath.row]
             self.searchBar.text = searchTermSelected
-            searchBar.resignFirstResponder()
-            performSearch(for: searchTermSelected)
+            resetTableAndSearch(term: searchTermSelected)
         }
     }
 }
@@ -92,11 +101,9 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        foundMovies.removeAll()
         self.searchActive = false;
         self.searchTableView.reloadData()
-        performSearch(for: searchBar.text)
+        resetTableAndSearch(term: searchBar.text)
     }
     
     func performSearch(for term: String?) {
