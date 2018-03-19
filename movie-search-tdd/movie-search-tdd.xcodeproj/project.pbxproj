@@ -27,6 +27,9 @@
 		23E2A8FB205F1A47000FE578 /* DBManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8FA205F1A47000FE578 /* DBManagerTests.swift */; };
 		23E2A8FD205F3FEB000FE578 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2A8FC205F3FEB000FE578 /* SDWebImage.framework */; };
 		23E2A8FF205F445D000FE578 /* MovieSearchUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A8FE205F445D000FE578 /* MovieSearchUtilities.swift */; };
+		23E2A901205F8071000FE578 /* SearchViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A900205F8071000FE578 /* SearchViewController+UISearchBarDelegate.swift */; };
+		23E2A903205F80DB000FE578 /* SearchViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A902205F80DB000FE578 /* SearchViewController+UITableViewDelegate.swift */; };
+		23E2A905205F80FA000FE578 /* SearchViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E2A904205F80FA000FE578 /* SearchViewController+UITableViewDataSource.swift */; };
 		23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F0555E205C4488005262D2 /* AppDelegate.swift */; };
 		23F05564205C4488005262D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F05562205C4488005262D2 /* Main.storyboard */; };
 		23F05566205C4488005262D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F05565205C4488005262D2 /* Assets.xcassets */; };
@@ -71,6 +74,9 @@
 		23E2A8FA205F1A47000FE578 /* DBManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManagerTests.swift; sourceTree = "<group>"; };
 		23E2A8FC205F3FEB000FE578 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		23E2A8FE205F445D000FE578 /* MovieSearchUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchUtilities.swift; sourceTree = "<group>"; };
+		23E2A900205F8071000FE578 /* SearchViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
+		23E2A902205F80DB000FE578 /* SearchViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		23E2A904205F80FA000FE578 /* SearchViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		23F0555B205C4488005262D2 /* movie-search-tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "movie-search-tdd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F0555E205C4488005262D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F05563205C4488005262D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				232F8A13205DFFF800C32A9A /* SearchViewController.swift */,
+				23E2A900205F8071000FE578 /* SearchViewController+UISearchBarDelegate.swift */,
+				23E2A902205F80DB000FE578 /* SearchViewController+UITableViewDelegate.swift */,
+				23E2A904205F80FA000FE578 /* SearchViewController+UITableViewDataSource.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -411,9 +420,12 @@
 				23F05595205C5436005262D2 /* NetworkServices.swift in Sources */,
 				232F8A0D205DEB0900C32A9A /* Movie.swift in Sources */,
 				23E2A8F3205F0C8C000FE578 /* DBManager.swift in Sources */,
+				23E2A905205F80FA000FE578 /* SearchViewController+UITableViewDataSource.swift in Sources */,
 				232F8A16205E001200C32A9A /* MovieTableViewCell.swift in Sources */,
 				23E2A8ED205EBDB4000FE578 /* RoundImageView.swift in Sources */,
 				23E2A8FF205F445D000FE578 /* MovieSearchUtilities.swift in Sources */,
+				23E2A901205F8071000FE578 /* SearchViewController+UISearchBarDelegate.swift in Sources */,
+				23E2A903205F80DB000FE578 /* SearchViewController+UITableViewDelegate.swift in Sources */,
 				232F8A1B205E0DBA00C32A9A /* NetworkServicesRouter.swift in Sources */,
 				23F0555F205C4488005262D2 /* AppDelegate.swift in Sources */,
 			);

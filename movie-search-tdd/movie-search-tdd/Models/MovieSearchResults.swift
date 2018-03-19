@@ -33,19 +33,19 @@ struct MovieSearchResults {
             let total_pages = searchResults["total_pages"].int,
             let results = searchResults["results"].array {
             
-                var movies = [Movie]()
+            var movies = [Movie]()
             
-                for movieObject in results {
-                    
-                    let movie = Movie(moviePoster: movieObject["poster_path"].string,
-                                      movieName: movieObject["original_title"].string,
-                                      releaseDate: movieObject["release_date"].string,
-                                      movieOverview: movieObject["overview"].string)
-                    movies.append(movie)
-                    
-                }
-            
-                searchResult = MovieSearchResults(page: page, total_results: total_results, total_pages: total_pages, results: movies)
+            // Go through every movie and append it to movies dictionary
+            for movieObject in results {
+                let movie = Movie(moviePoster: movieObject["poster_path"].string,
+                                  movieName: movieObject["original_title"].string,
+                                  releaseDate: movieObject["release_date"].string,
+                                  movieOverview: movieObject["overview"].string)
+                movies.append(movie)
+                
+            }
+        
+            searchResult = MovieSearchResults(page: page, total_results: total_results, total_pages: total_pages, results: movies)
         }
         
         return searchResult

@@ -9,6 +9,7 @@
 import XCTest
 @testable import movie_search_tdd
 
+/// Database manager tests
 class DBManagerTests: XCTestCase {
     
     override func setUp() {
@@ -19,11 +20,17 @@ class DBManagerTests: XCTestCase {
         super.tearDown()
     }
     
+    /**
+     This fucntion tests retrieving data from Realm
+     */
     func testRetrieveDataFromRealm() {
         let retrievedResults = DBManager.sharedInstance.retrieve()
          XCTAssertNotNil(retrievedResults, "No data was found.")
     }
     
+    /**
+     Tests to save search term to the Realm database
+     */
     func testSaveDataInRealm() {
         let searchTerm = SearchTerm()
         searchTerm.name = "batman"

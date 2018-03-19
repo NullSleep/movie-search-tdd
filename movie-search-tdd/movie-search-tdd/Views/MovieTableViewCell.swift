@@ -34,6 +34,7 @@ class MovieTableViewCell: UITableViewCell {
         self.releaseDateLabel.text = "Release date: " + (movie.releaseDate ?? "")
         self.movieOverview.text = movie.movieOverview
         
+        //Create the image url and set it using SDWebImage
         if let imageURL = movie.moviePoster {
             let imagePath = networkServices.getImageUrl(path: imageURL, size: NetworkServicesRouter.posterSize.medium.rawValue)
             self.movieImageView.sd_setImage(with: imagePath, placeholderImage: UIImage(named: "placeholder.png"))

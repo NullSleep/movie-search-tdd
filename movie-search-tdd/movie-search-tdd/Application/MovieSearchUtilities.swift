@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
+//Alert utilities class
 class Alert {
+    
+    /**
+     Allows to display an alert acrross the app given the title, message and the view controller instace that requires it
+     */
     static func showAlert(title: String, message: String, vc: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
