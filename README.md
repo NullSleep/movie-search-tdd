@@ -22,4 +22,5 @@ Movie search iOS application for the Careem iOS assignment.
 
 - Make sure to run 'carthage update --platform iOS' to download and update all the repository libraries.
 - Run all the tests before building the project.
+- Use the NetworkServicesRouter.swift for configuring, adding new endpoints, paths and images sizes.
 - Once tests have passed build and the run the project as usual.
