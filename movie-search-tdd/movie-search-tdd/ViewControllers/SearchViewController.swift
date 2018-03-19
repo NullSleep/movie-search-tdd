@@ -100,6 +100,9 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchActive = true;
         self.searchTableView.reloadData()
+        
+        self.searchTableView.setNeedsLayout()
+        self.searchTableView.layoutIfNeeded()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -107,7 +110,7 @@ extension SearchViewController: UISearchBarDelegate {
         self.searchTableView.reloadData()
         resetTableAndSearch(term: searchBar.text)
     }
-    
+        
     func performSearch(for term: String?) {
         guard let term = term else { return }
         
@@ -128,7 +131,9 @@ extension SearchViewController: UISearchBarDelegate {
                 self.saveSearchTerm(term)
                 
             } else if movieData == nil {
-                // jsonValue = self.retrieveStoredData() ?? [:]
+                Alert.showAlert(title: "Error", message: "No data was found", vc: self)
+            } else if error != nil {
+                Alert.showAlert(title: "Error", message: (error?.localizedDescription)! , vc: self)
             }
         }
     }
@@ -142,12 +147,6 @@ extension SearchViewController: UISearchBarDelegate {
         searchTerm.name = term
         let _ = DBManager.sharedInstance.save(object: searchTerm)
         searchTerms.insert(term, at: 0)
-    }
-    
-    func shwoNoSearchAlert(for term: String) {
-        let alertController = UIAlertController(title: "Error", message: "No movies could be found for \(term). Try searching for something else)", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        present(alertController, animated: true)
     }
 }
 
@@ -175,14 +174,8 @@ extension SearchViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
         let movie = self.foundMovies[indexPath.row]
-        cell.movieNameLabel.text = movie.movieName
-        cell.releaseDateLabel.text = movie.releaseDate
-        cell.movieOverview.text = movie.movieOverview
         
-        if let imageURL = movie.moviePoster {
-            let imagePath = networkServices.getImageUrl(path: imageURL, size: NetworkServicesRouter.posterSize.medium.rawValue)
-             cell.movieImageView.sd_setImage(with: imagePath, placeholderImage: UIImage(named: "placeholder.png"))
-        }
+        cell.configure(with: movie)
         
         return cell
     }

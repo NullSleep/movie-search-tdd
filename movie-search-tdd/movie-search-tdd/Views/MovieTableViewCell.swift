@@ -15,7 +15,11 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
-
+    
+    // MARK: - Properties
+    private lazy var networkServices = NetworkServices()
+    
+    // MARK: - Cell Methods
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,5 +27,16 @@ class MovieTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
+    // MARK: - Public Methods
+    func configure(with movie: Movie) {
+        self.movieNameLabel.text = movie.movieName
+        self.releaseDateLabel.text = "Release date: " + (movie.releaseDate ?? "")
+        self.movieOverview.text = movie.movieOverview
+        
+        if let imageURL = movie.moviePoster {
+            let imagePath = networkServices.getImageUrl(path: imageURL, size: NetworkServicesRouter.posterSize.medium.rawValue)
+            self.movieImageView.sd_setImage(with: imagePath, placeholderImage: UIImage(named: "placeholder.png"))
+        }
+    }
 }

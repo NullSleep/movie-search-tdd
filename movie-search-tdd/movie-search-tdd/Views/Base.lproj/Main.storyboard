@@ -12,7 +12,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
-            <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
             <string>Avenir-Light</string>
         </array>
@@ -71,14 +70,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jy0-W6-Gkt" userLabel="Movie Card">
                                                     <rect key="frame" x="15" y="15" width="345" height="381"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Movie name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gow-VD-dFv">
-                                                            <rect key="frame" x="10" y="288" width="166.5" height="88"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.73333333333333328" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iEO-FE-2Nm" customClass="RoundImageView" customModule="movie_search_tdd" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="10" width="166.5" height="250"/>
+                                                            <rect key="frame" x="10" y="98" width="166.5" height="250"/>
                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="250" id="64R-sc-eqJ"/>
@@ -90,14 +83,21 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Short Movie Overview." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDl-sk-GJ7">
-                                                            <rect key="frame" x="186.5" y="8" width="148.5" height="363"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                            <color key="textColor" red="0.64269309145320419" green="0.77331042357943547" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" text="Movie Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="3Ms-OU-cBz">
+                                                            <rect key="frame" x="185" y="4" width="186" height="368"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                                            <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Movie name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Gow-VD-dFv">
+                                                            <rect key="frame" x="10" y="10" width="166.5" height="83"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="21"/>
+                                                            <color key="textColor" red="0.0" green="0.73333333333333328" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3H-OP-RtG">
-                                                            <rect key="frame" x="10" y="265" width="166.5" height="18"/>
+                                                            <rect key="frame" x="10" y="358" width="166.5" height="18"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                                             <color key="textColor" red="0.58853283994899397" green="0.90892614098136215" blue="0.9209868311882019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -106,18 +106,14 @@
                                                     <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Y3H-OP-RtG" firstAttribute="trailing" secondItem="Gow-VD-dFv" secondAttribute="trailing" id="1nn-P4-vZ6"/>
+                                                        <constraint firstItem="iEO-FE-2Nm" firstAttribute="top" secondItem="Gow-VD-dFv" secondAttribute="bottom" constant="5" id="20o-wT-mVD"/>
                                                         <constraint firstItem="Y3H-OP-RtG" firstAttribute="leading" secondItem="Gow-VD-dFv" secondAttribute="leading" id="2e7-r0-Slk"/>
-                                                        <constraint firstItem="HDl-sk-GJ7" firstAttribute="top" secondItem="Jy0-W6-Gkt" secondAttribute="top" constant="8" id="5aP-z0-Z5r"/>
-                                                        <constraint firstItem="Gow-VD-dFv" firstAttribute="top" secondItem="Y3H-OP-RtG" secondAttribute="bottom" constant="5" id="8dl-7v-kj7"/>
-                                                        <constraint firstItem="iEO-FE-2Nm" firstAttribute="top" secondItem="Jy0-W6-Gkt" secondAttribute="top" constant="10" id="8l0-Gs-KDU"/>
                                                         <constraint firstItem="Gow-VD-dFv" firstAttribute="trailing" secondItem="iEO-FE-2Nm" secondAttribute="trailing" id="9k9-yV-6N0"/>
-                                                        <constraint firstItem="HDl-sk-GJ7" firstAttribute="leading" secondItem="iEO-FE-2Nm" secondAttribute="trailing" constant="10" id="SSO-kq-7Vm"/>
+                                                        <constraint firstItem="Y3H-OP-RtG" firstAttribute="top" secondItem="iEO-FE-2Nm" secondAttribute="bottom" constant="10" id="MXf-86-E9X"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Y3H-OP-RtG" secondAttribute="bottom" constant="5" id="NC5-3e-ZuU"/>
                                                         <constraint firstItem="Gow-VD-dFv" firstAttribute="leading" secondItem="Jy0-W6-Gkt" secondAttribute="leading" constant="10" id="TZ5-3K-xBa"/>
                                                         <constraint firstItem="iEO-FE-2Nm" firstAttribute="leading" secondItem="Jy0-W6-Gkt" secondAttribute="leading" constant="10" id="XLZ-89-78d"/>
-                                                        <constraint firstAttribute="bottom" secondItem="HDl-sk-GJ7" secondAttribute="bottom" constant="10" id="eDj-Qe-spk"/>
-                                                        <constraint firstItem="Y3H-OP-RtG" firstAttribute="top" secondItem="iEO-FE-2Nm" secondAttribute="bottom" constant="5" id="fF4-QJ-YPg"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HDl-sk-GJ7" secondAttribute="trailing" constant="10" id="xmL-lW-4yr"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Gow-VD-dFv" secondAttribute="bottom" constant="5" id="yZA-H2-rdC"/>
+                                                        <constraint firstItem="Gow-VD-dFv" firstAttribute="top" secondItem="Jy0-W6-Gkt" secondAttribute="top" constant="10" id="bHd-Vb-NnT"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -136,7 +132,7 @@
                                         <connections>
                                             <outlet property="movieImageView" destination="iEO-FE-2Nm" id="dqw-mE-c4y"/>
                                             <outlet property="movieNameLabel" destination="Gow-VD-dFv" id="B8y-Wr-Zrk"/>
-                                            <outlet property="movieOverview" destination="HDl-sk-GJ7" id="Uet-zz-wBg"/>
+                                            <outlet property="movieOverview" destination="3Ms-OU-cBz" id="gXx-bk-3IQ"/>
                                             <outlet property="releaseDateLabel" destination="Y3H-OP-RtG" id="0Xr-Ar-a5j"/>
                                         </connections>
                                     </tableViewCell>
