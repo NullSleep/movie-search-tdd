@@ -1,6 +1,6 @@
 # Movie Search Application
 
-Movie search iOS application for the Careem iOS assignment.
+Movie search demo iOS application.
 
 ## Features
 
