@@ -17,6 +17,7 @@ class RoundImageView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.masksToBounds = true
+        // Setting the radius as function of the width and radius factor
         layer.cornerRadius = bounds.width * CGFloat(RoundImageView.cornerRaiusFactor)
     }
 }
