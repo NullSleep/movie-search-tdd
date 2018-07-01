@@ -34,7 +34,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
 
     /// It should be possible to successfully open a Realm configured for sync.
     func testBasicSwiftSync() {
-        let url = URL(string: "realm://localhost:9080/~/testBasicSync")!
+        let url = URL(string: "realm://127.0.0.1:9080/~/testBasicSync")!
         do {
             let user = try synchronouslyLogInUser(for: basicCredentials(register: true), server: authURL)
             let realm = try synchronouslyOpenRealm(url: url, user: user)
@@ -169,7 +169,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
             let user = try synchronouslyLogInUser(for: basicCredentials(register: isParent), server: authURL)
             let realm = try synchronouslyOpenRealm(url: realmURL, user: user)
             if isParent {
-                let session = user.session(for: realmURL)
+                let session = realm.syncSession
                 XCTAssertNotNil(session)
                 let ex = expectation(description: "streaming-downloads-expectation")
                 var hasBeenFulfilled = false
@@ -212,7 +212,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
             var transferrable = 0
             let user = try synchronouslyLogInUser(for: basicCredentials(register: isParent), server: authURL)
             let realm = try synchronouslyOpenRealm(url: realmURL, user: user)
-            let session = user.session(for: realmURL)
+            let session = realm.syncSession
             XCTAssertNotNil(session)
             let ex = expectation(description: "streaming-uploads-expectation")
             var hasBeenFulfilled = false
@@ -251,7 +251,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
                 // Wait for the child process to upload everything.
                 executeChild()
                 let ex = expectation(description: "download-realm")
-                let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: realmURL))
+                let config = user.configuration(realmURL: realmURL, fullSynchronization: true)
                 let pathOnDisk = ObjectiveCSupport.convert(object: config).pathOnDisk
                 XCTAssertFalse(FileManager.default.fileExists(atPath: pathOnDisk))
                 Realm.asyncOpen(configuration: config) { realm, error in
@@ -421,7 +421,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
             autoreleasepool {
                 let credentials = SyncCredentials.usernamePassword(username: "Swift.testPartialSync", password: "a", register: true)
                 let user = try! synchronouslyLogInUser(for: credentials, server: authURL)
-                let realm = try! synchronouslyOpenRealm(configuration: SyncConfiguration.automatic(user: user))
+                let realm = try! synchronouslyOpenRealm(configuration: user.configuration())
 
                 try! realm.write {
                     realm.add(SwiftPartialSyncObjectA(number: 0, string: "realm"))
@@ -453,7 +453,7 @@ class SwiftObjectServerTests: SwiftSyncTestCase {
             autoreleasepool {
                 let credentials = SyncCredentials.usernamePassword(username: "Swift.testPartialSync", password: "a")
                 let user = try! synchronouslyLogInUser(for: credentials, server: authURL)
-                let realm = try! synchronouslyOpenRealm(configuration: SyncConfiguration.automatic(user: user))
+                let realm = try! synchronouslyOpenRealm(configuration: user.configuration())
 
                 let ex = expectation(description: "Should be able to successfully complete a query")
                 let results = realm.objects(SwiftPartialSyncObjectA.self).filter("number > 5")

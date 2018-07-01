@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import AlamofireImage
+import Alamofire
 import SDWebImage
 
 /// Main search view controller of the application
