@@ -12,16 +12,14 @@ import SwiftyJSON
 
 class NetworkServices {
     
-    /// API error protocol
+    // API error protocol
     enum APiError : Error {
         case ServiceError(String)
     }
     
     // MARK: - Public Methods
     
-    /**
-     Given a term and page retunrs a tuple with the JSON respresentation of the response and an Error in case of problems
-     */
+    // Given a term and page retunrs a tuple with the JSON respresentation of the response and an Error in case of problems
     public func searchTerm(for term: String, page: Int, completion: @escaping (MovieSearchResults?, Error?) -> ()) {
         Alamofire.request(NetworkServicesRouter.searchMovies(term, page)).responseJSON { response in
             switch response.result {
@@ -50,9 +48,7 @@ class NetworkServices {
         }
     }
     
-    /**
-     Given an image path return the image url
-     */
+    // Given an image path return the image url
     public func getImageUrl(path: String, size: String) -> URL {
         let imageURL = NetworkServicesRouter.imageBaseURLPath + size + path
         return URL(string: imageURL)!

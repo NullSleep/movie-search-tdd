@@ -26,8 +26,7 @@ public enum NetworkServicesRouter: URLRequestConvertible {
     // MARK: - Endpoint cases
     case searchMovies(String, Int)
     case otherService
-    
-    // MARK: - Endpoint cases
+
     var method: HTTPMethod {
         switch self {
         case .searchMovies:
@@ -49,9 +48,7 @@ public enum NetworkServicesRouter: URLRequestConvertible {
     
     // MARK: - Public Methods
     
-    /**
-     Function that throws an URLRequest given a set case for an endpoint
-     */
+    // Function that throws an URLRequest given a set case for an endpoint
     public func asURLRequest() throws -> URLRequest {
         let parameters: [String: Any] = {
             switch self {

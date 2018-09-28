@@ -9,7 +9,6 @@
 import Foundation
 
 struct Movie {
-    // MARK: - Properties
     var moviePoster: String?
     var movieName: String?
     var releaseDate: String?

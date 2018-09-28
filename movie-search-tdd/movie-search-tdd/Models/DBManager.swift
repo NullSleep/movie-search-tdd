@@ -12,7 +12,7 @@ import RealmSwift
 class DBManager {
     
     // MARK: - Properties
-    private var database:Realm
+    private var database: Realm
     static let sharedInstance = DBManager()
     
     // MARK: - Initializer
@@ -22,9 +22,7 @@ class DBManager {
     
     // MARK: - Public Functions
     
-    /**
-     Save the give search to the Real database
-     */
+    // Save the give search to the Real database
     func save(object: SearchTerm) -> Bool {
         do {
             try database.write {
@@ -37,26 +35,20 @@ class DBManager {
         return false
     }
     
-    /**
-     Retrieve the search results previously stored
-     */
+    // Retrieve the search results previously stored
     func retrieve() -> Results<SearchTerm> {
         let results: Results<SearchTerm> = database.objects(SearchTerm.self)
         return results
     }
     
-    /**
-     Delete all data from the Realm database
-     */
+    // Delete all data from the Realm database
     func deleteAllFromDatabase()  {
         try! database.write {
             database.deleteAll()
         }
     }
     
-    /**
-     Delete an specific term from the Realm database
-     */
+    // Delete an specific term from the Realm database
     func deleteFromDb(object: SearchTerm)   {
         try! database.write {
             database.delete(object)
@@ -64,7 +56,7 @@ class DBManager {
     }
 }
 
-/// SearchTerm object represention that is going to be save to the Realm database.
+// SearchTerm object represention that is going to be save to the Realm database.
 class SearchTerm: Object {
     @objc dynamic var name: String = ""
     
