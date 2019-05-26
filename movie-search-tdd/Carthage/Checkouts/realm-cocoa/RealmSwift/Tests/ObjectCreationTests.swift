@@ -21,11 +21,14 @@ import RealmSwift
 import Realm.Private
 
 class ObjectWithPrivateOptionals: Object {
-    private var int: Int?
-    private var float: Float?
-    private var string: String?
+    private var nilInt: Int?
+    private var nilFloat: Float?
+    private var nilString: String?
+    private var int: Int? = 123
+    private var float: Float? = 1.23
+    private var string: String? = "123"
 
-    @objc dynamic var value = 0
+    @objc dynamic var value = 5
 }
 
 class ObjectCreationTests: TestCase {
@@ -405,7 +408,7 @@ class ObjectCreationTests: TestCase {
         let realmA = realmWithTestPath()
         let realmB = try! Realm()
 
-        var realmAObject: SwiftListOfSwiftObject!
+        var realmAObject: SwiftListOfSwiftObject?
         try! realmA.write {
             let array = [SwiftObject(value: values), SwiftObject(value: values)]
             realmAObject = realmA.create(SwiftListOfSwiftObject.self, value: ["array": array])
@@ -413,7 +416,7 @@ class ObjectCreationTests: TestCase {
 
         var realmBObject: SwiftListOfSwiftObject!
         try! realmB.write {
-            realmBObject = realmB.create(SwiftListOfSwiftObject.self, value: realmAObject)
+            realmBObject = realmB.create(SwiftListOfSwiftObject.self, value: realmAObject!)
         }
 
         XCTAssertNotEqual(realmAObject, realmBObject)
