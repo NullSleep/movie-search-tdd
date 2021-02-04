@@ -4,7 +4,7 @@ Movie search demo iOS application.
 
 ## Features
 
-- Made in Swift 4.
+- Made with Swift 4.
 - Xcode 9.2.
 - Test driven development and unit testing for all non UI classes.
 - Search for movies given an specific search term.
