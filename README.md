@@ -1,6 +1,6 @@
 # Movie Search Application
 
-Movie search demo iOS application.
+Movie search demo iOS application
 
 ## Features
 
