@@ -1,6 +1,6 @@
 # Movie Search Application
 
-Movie search demo iOS application built using TDD
+Movie search demo iOS application built using TDD.
 
 ## Features
 
