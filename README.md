@@ -1,5 +1,5 @@
 # Movie Search Application
-Movie search demo iOS application built using TDD.
+Movie search demo iOS application built using Test driven development 
 
 ## Features
 - Made with Swift 4.
